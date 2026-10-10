@@ -143,3 +143,7 @@ the frontend attaches this automatically once you're signed in.
   CASCADE`, so deleting a user cleans up their tasks.
 - Indexes on `user_id`, `status`, and `due_date` keep the dashboard's
   filtered queries fast as the table grows.
+
+## Docker deployment
+
+See [`DOCKER_DEPLOYMENT.md`](DOCKER_DEPLOYMENT.md) for a Docker Compose deployment of the frontend, backend, and MySQL on EC2. It uses Python 3.12 in the backend image and does not require a host Python virtual environment.

@@ -34,7 +34,7 @@ spec:
                   key: DB_PASSWORD
       containers:
         - name: backend
-          image: YOUR_DOCKERHUB_USERNAME/task-manager-backend:1.0.0
+          image: mruday033/task-manager-backend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

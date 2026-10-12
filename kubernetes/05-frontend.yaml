@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: YOUR_DOCKERHUB_USERNAME/task-manager-frontend:1.0.0
+          image: mruday033/task-manager-frontend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

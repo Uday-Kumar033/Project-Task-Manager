@@ -1,0 +1,38 @@
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: task-manager-deployer
+  namespace: task-manager
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: task-manager-deployer-role
+  namespace: task-manager
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch", "patch"]
+
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+
+  - apiGroups: ["apps"]
+    resources: ["replicasets"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: task-manager-deployer-binding
+  namespace: task-manager
+subjects:
+  - kind: ServiceAccount
+    name: task-manager-deployer
+    namespace: task-manager
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: task-manager-deployer-role

@@ -47,7 +47,7 @@ jobs:
     runs-on: self-hosted
     needs: build-and-push # This now successfully connects to the job above
     env:
-      KUBECONFIG: /home/github-runner/.kube/config
+      KUBECONFIG: /home/ubuntu/.kube/task-manager-config
 
     steps:
       - name: Verify Kubernetes access

@@ -1,0 +1,9 @@
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: task-manager-runner-token
+  namespace: task-manager
+  annotations:
+    kubernetes.io/service-account.name: task-manager-deployer
+type: kubernetes.io/service-account-token
